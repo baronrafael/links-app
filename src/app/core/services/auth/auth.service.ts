@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { LoginCredentials } from 'src/app/shared/interfaces/auth/login-credentials/login-credentials';
 import { RegisterCredentials } from 'src/app/shared/interfaces/auth/register-credentials/register-credentials';
 
