@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { NotificationService } from 'src/app/core/services/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -46,10 +48,12 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           //console.log(res);
+          this.notificationService.successMessage('successfulLogin');
           this.goToPrivate();
         },
         error: (err) => {
-          console.error(err);
+          //console.error(err);
+          this.notificationService.errorMessage('loginError');
         }
       });
   }
