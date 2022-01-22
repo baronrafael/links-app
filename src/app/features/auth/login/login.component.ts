@@ -43,18 +43,18 @@ export class LoginComponent implements OnInit {
 
   handleLogin() {
     this.loginSubscription = this.authService.login(this.loginForm.value)
-    .subscribe(
-      (res: any) => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
   }
 
   ngOnDestroy(): void {
-    if(this.loginSubscription) {
+    if (this.loginSubscription) {
       this.loginSubscription.unsubscribe();
     }
   }
