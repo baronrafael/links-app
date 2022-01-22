@@ -1,14 +1,6 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="container">
-        <div class="navbar-brand is-flex is-align-items-center">
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navbar" class="navbar-menu">
+        <div id="navbar" class="navbar-menu is-block">
             <div class="navbar-end">
                 <div class="navbar-item">
                     <a routerLink="/auth/login" class="button is-primary is-medium is-outlined">
@@ -58,7 +50,7 @@
                             </div>
                             <div class="field mt-4">
                                 <p class="control is-flex is-justify-content-center">
-                                    <button type="submit" class="button is-primary is-medium is-filled"
+                                    <button type="submit" class="button button-card is-primary is-medium is-filled"
                                         [disabled]="!signupForm.valid || !checkingValidEmail()">
                                         <span>Signup</span>
                                     </button>
