@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./variables.scss";
+@import "../node_modules/bulma-pageloader/src/sass/index.sass";
 
 .button.is-outlined {
     border: 2px solid;
