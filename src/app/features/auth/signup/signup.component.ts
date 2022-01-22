@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { NotificationService } from 'src/app/core/services/notification/notification.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,6 +20,7 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -38,8 +40,8 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  goToPrivate() {
-    this.router.navigate(['']);
+  goToLogin() {
+    this.router.navigate(['auth/login']);
   }
 
   handleSignup() {
@@ -47,9 +49,13 @@ export class SignupComponent implements OnInit {
       .subscribe({
         next: (res) => {
           //console.log(res);
+          this.notificationService.successMessage('successfulRegister');
+          this.goToLogin();
+
         },
         error: (err) => {
-          console.error(err);
+          //console.error(err);
+          this.notificationService.errorMessage('registerError');
         }
       });
   }
