@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.UserDataSubscription = this.userService.getUser()
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           if(res) {
             this.user = res;
           }
