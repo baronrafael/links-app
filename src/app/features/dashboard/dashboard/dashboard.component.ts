@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { LinksService } from 'src/app/core/services/links/links.service';
 import { NotificationService } from 'src/app/core/services/notification/notification.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { User } from 'src/app/shared/interfaces/user/user';
@@ -15,15 +16,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   UserDataSubscription!: Subscription;
   userSubscription!: Subscription;
+  linksSubscription!: Subscription;
   subscriptionArray: Subscription[] = [];
 
   constructor(
     private userService: UserService,
+    private linksService: LinksService,
     private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
     this.getUserData();
+    this.getLinks();
   }
 
   getUserData() {
@@ -31,7 +35,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res) => {
           //console.log(res);
-          if(res) {
+          if (res) {
             this.user = res;
           }
           else {
@@ -60,6 +64,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
       });
     this.subscriptionArray.push(this.userSubscription);
+  }
+
+  getLinks() {
+    this.linksSubscription = this.linksService.list()
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.error(err);
+          this.notificationService.errorMessage('listLinksError');
+        }
+      });
+    this.subscriptionArray.push(this.linksSubscription);
   }
 
   ngOnDestroy(): void {
