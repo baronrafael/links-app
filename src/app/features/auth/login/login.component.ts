@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
     this.loginSubscription = this.authService.login(this.loginForm.value)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
+          this.goToPrivate();
         },
         error: (err) => {
           console.error(err);
