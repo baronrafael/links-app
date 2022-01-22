@@ -43,10 +43,10 @@ export class SignupComponent implements OnInit {
   }
 
   handleSignup() {
-    this.signupSubscription = this.authService.login(this.signupForm.value)
+    this.signupSubscription = this.authService.register(this.signupForm.value)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
         },
         error: (err) => {
           console.error(err);
