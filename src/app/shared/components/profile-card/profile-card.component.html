@@ -1,12 +1,12 @@
-<div class="card">
+<div *ngIf="$user | async as user" class="card">
     <div class="card-content is-flex is-justify-content-center">
         <div class="media">
             <div class="media-content is-flex is-flex-direction-column is-align-items-center">
                 <figure class="image is-128x128 my-5">
-                    <img class="is-rounded" src="https://s3-alpha-sig.figma.com/img/823b/477b/e7545fb3aa598080786240a42cfa7414?Expires=1643587200&Signature=AFBG7UuYEtmBdAW0-vyjUG7diy7R20qngNek1SQIS1mb13qoxIu4X7GpI1khoAfZq5qZ8Xf2MrqrxPs5kNoxUjJdewXNTx9lZxNo~v5RYmu8oyLsVblA9ZJr8N6IPKRmDhBdwqm9dqFNqSPDTyprSXcr3yGSi6jmuJM4WUA2htvsVoI1Tp~UcLFNzh1iovJpApWo0o1V7TfsTN2Y5YOmjcLjBC0ktFpRTmUohnMVRf5LpDOjbomXpVOneO~dBejrh7q4gBfO2-dGsIaDndBv-6HKJeGg66VJGS7HA5SgOKxVAqsNOYhj3vKBu1~JUTnXPeXlcBD~TSGSsNbyUjN5GQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA">
+                    <img class="is-rounded" src="{{user.avatar}}">
                 </figure>
-                <p>JJeff Brown</p>
-                <p class="mt-2">jeff.brown@example.com</p>
+                <p>{{user.name}}</p>
+                <p class="mt-2">{{user.email}}</p>
             </div>
         </div>
     </div>
