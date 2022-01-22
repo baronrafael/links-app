@@ -28,6 +28,10 @@ export class AuthService {
     );
   }
 
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
   register(credentials: RegisterCredentials) {
     return this.httpClient.post(`${environment.apiUrl}${this.registerUrl}`, credentials)
   }
