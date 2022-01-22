@@ -13,8 +13,12 @@ export class UserService {
     this.userUrl = 'user';
   }
 
-  get(userId: number) {
+  /* get(userId: number) {
     return this.httpClient.get(`${environment.apiUrl}${this.userUrl}/${userId}`);
+  } */
+
+  get() {
+    return this.httpClient.get(`${environment.apiUrl}${this.userUrl}/${1}`);
   }
 
 }
