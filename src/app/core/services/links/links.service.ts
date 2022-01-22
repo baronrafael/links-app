@@ -19,7 +19,7 @@ export class LinksService {
   }
 
   list() {
-    return this.httpClient.get<Link[]>(`${environment.apiUrl}${this.linksUrl}`);
+    return this.httpClient.get(`${environment.apiUrl}${this.linksUrl}`);
   }
 
   delete(linkId: number) {

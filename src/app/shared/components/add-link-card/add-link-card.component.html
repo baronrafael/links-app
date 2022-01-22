@@ -1,23 +1,32 @@
 <div class="card">
     <div class="card-content">
-        <div class="field">
-            <label class="label">Url To Save</label>
-            <div class="control">
-                <input class="input" type="text">
+        <form class="mt-3" [formGroup]="linkForm" (ngSubmit)="addLink()">
+            <div class="field">
+                <label class="label">Url To Save</label>
+                <input formControlName="url" class="input" type="text">
+                <p *ngIf="this.linkForm.controls['url'].errors?.['pattern']" class="help is-danger mt-3">
+                    Url is invalid
+                </p>
+                <p *ngIf="this.linkForm.controls['url'].touched && this.linkForm.controls['url'].errors?.['required']"
+                    class="help is-danger mt-3">
+                    Url is required
+                </p>
             </div>
-        </div>
-        <div class="field">
-            <label class="label">Name of Url</label>
-            <div class="control">
-                <input class="input" type="email">
+            <div class="field">
+                <label class="label">Name of Url</label>
+                <input formControlName="name" class="input" type="text">
+                <p *ngIf="this.linkForm.controls['name'].touched && this.linkForm.controls['name'].invalid"
+                    class="help is-danger mt-3">
+                    Name is required
+                </p>
             </div>
-        </div>
-        <div class="field">
-            <p class="control is-flex is-justify-content-end">
-                <button class="button is-primary is-medium is-filled">
-                    <span>ADD</span>
-                </button>
-            </p>
-        </div>
+            <div class="field">
+                <p class="control is-flex is-justify-content-end">
+                    <button type="submit" class="button is-primary is-medium is-filled" [disabled]="!linkForm.valid">
+                        <span>ADD</span>
+                    </button>
+                </p>
+            </div>
+        </form>
     </div>
 </div>

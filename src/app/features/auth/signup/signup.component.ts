@@ -12,7 +12,6 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 })
 export class SignupComponent implements OnInit, OnDestroy {
 
-  emailRegEx: string = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/igm";
   signupForm!: FormGroup;
   signupSubscription!: Subscription;
 

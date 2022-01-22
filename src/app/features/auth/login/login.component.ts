@@ -14,7 +14,6 @@ import { User } from 'src/app/shared/interfaces/user/user';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  emailRegEx: string = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/igm";
   loginForm!: FormGroup;
   loginSubscription!: Subscription;
   userSubscription!: Subscription;
