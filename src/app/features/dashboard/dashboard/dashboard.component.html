@@ -1,15 +1,17 @@
-<app-header></app-header>
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-narrow">
-                <app-profile-card></app-profile-card>
-            </div>
-            <div class="column">
-                <app-add-link-card></app-add-link-card>
-                <br>
-                <app-link-card></app-link-card>
+<div *ngIf="user">
+    <app-header></app-header>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-narrow">
+                    <app-profile-card></app-profile-card>
+                </div>
+                <div class="column">
+                    <app-add-link-card></app-add-link-card>
+                    <br>
+                    <app-link-card></app-link-card>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
