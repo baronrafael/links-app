@@ -1,1 +1,76 @@
-<p>signup works!</p>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand is-flex is-align-items-center">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a routerLink="/auth/login" class="button is-primary is-medium is-outlined">
+                        <span>LOGIN</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+        <div class="container is-flex is-flex-direction-column is-align-items-center">
+            <img class="app-logo" src="/assets/images/links-logo.png">
+            <div class="card mt-5 is-fullwidth">
+                <div class="card-content">
+                    <div class="content my-3">
+                        <span class="login-card-title">Signup</span>
+                        <form class="mt-3" [formGroup]="signupForm" (ngSubmit)="handleSignup()">
+                            <div class="field">
+                                <label class="label">Full name</label>
+                                <input formControlName="name" class="input" type="text">
+                                <p *ngIf="this.signupForm.controls['name'].touched && this.signupForm.controls['name'].invalid"
+                                    class="help is-danger mt-3">
+                                    Full name is required
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label class="label">Your Email</label>
+                                <input formControlName="email" class="input" type="text">
+                                <p *ngIf="this.signupForm.controls['email'].touched && !checkingValidEmail() && this.signupForm.controls['email'].valid"
+                                    class="help is-danger mt-3">
+                                    Email is invalid
+                                </p>
+                                <p *ngIf="this.signupForm.controls['email'].touched && this.signupForm.controls['email'].invalid"
+                                    class="help is-danger mt-3">
+                                    Email is required
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label class="label">Password</label>
+                                <input formControlName="password" class="input" type="password">
+                                <p *ngIf="this.signupForm.controls['password'].touched && this.signupForm.controls['password'].invalid"
+                                    class="help is-danger mt-3">
+                                    Password is required
+                                </p>
+                            </div>
+                            <div class="field mt-4">
+                                <p class="control is-flex is-justify-content-center">
+                                    <button type="submit" class="button is-primary is-medium is-filled"
+                                        [disabled]="!signupForm.valid || !checkingValidEmail()">
+                                        <span>Signup</span>
+                                    </button>
+                                </p>
+                            </div>
+                        </form>
+                        <p class="has-text-centered signup-message mt-3">By Creating account You agree to the <a>Terms
+                                of use</a> and <a>Privacy Policy</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
