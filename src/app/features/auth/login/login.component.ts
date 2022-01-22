@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslocoService } from '@ngneat/transloco';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { NotificationService } from 'src/app/core/services/notification/notification.service';
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private userService: UserService,
+    private translocoService: TranslocoService,
     private notificationService: NotificationService
   ) { }
 
@@ -32,6 +34,17 @@ export class LoginComponent implements OnInit, OnDestroy {
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+  }
+
+  changeLanguage() {
+    let activeLang = this.translocoService.getActiveLang();
+    console.log(activeLang);
+    if(activeLang == 'en'){
+      this.translocoService.setActiveLang('es');
+    }
+    else if(activeLang == 'es') {
+      this.translocoService.setActiveLang('en');
+    }
   }
 
   checkingValidEmail() {
