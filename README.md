@@ -1,4 +1,14 @@
-# LinksApp
+# Links App
+
+## Tech Stack
+- [Angular](https://angular.io/)
+- [Bulma](https://bulma.io/)
+- [Bulma Pageloader](https://wikiki.github.io/elements/pageloader/)
+- [Angular Toastr](https://ngx-toastr.vercel.app/)
+- [Transloco](https://ngneat.github.io/transloco/)
+- [Netlify](https://www.netlify.com/)
+
+There's a live demo in: https://links-app-develop.netlify.app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
