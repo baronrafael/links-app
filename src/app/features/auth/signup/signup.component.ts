@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   changeLanguage() {
     let activeLang = this.translocoService.getActiveLang();
-    console.log(activeLang);
+    //console.log(activeLang);
     if(activeLang == 'en'){
       this.translocoService.setActiveLang('es');
     }

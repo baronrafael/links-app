@@ -9,7 +9,10 @@
                 <div class="column">
                     <app-add-link-card></app-add-link-card>
                     <br>
-                    <app-link-card></app-link-card>
+                    <ng-container *ngFor="let link of links">
+                        <app-link-card [link]="link"></app-link-card>
+                        <br>
+                    </ng-container>
                 </div>
             </div>
         </div>

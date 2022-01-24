@@ -21,7 +21,7 @@ export class AuthService {
   login(credentials: LoginCredentials) {
     return this.httpClient.post(`${environment.apiUrl}${this.loginUrl}`, credentials).pipe(
       map((res: any) => {
-        console.log(res.token);
+        //console.log(res.token);
         localStorage.setItem('token', res.token);
         return res;
       })
