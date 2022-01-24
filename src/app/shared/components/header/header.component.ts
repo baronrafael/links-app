@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   changeLanguage() {
     let activeLang = this.translocoService.getActiveLang();
-    console.log(activeLang);
+    //console.log(activeLang);
     if(activeLang == 'en'){
       this.translocoService.setActiveLang('es');
     }

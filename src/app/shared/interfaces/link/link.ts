@@ -1,6 +1,6 @@
 export interface Link {
-    id?: string,
-    createdAt?: string,
+    id: string,
+    createdAt: string,
     url: string,
     name: string,
 }

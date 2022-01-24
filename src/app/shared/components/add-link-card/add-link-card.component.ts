@@ -26,19 +26,19 @@ export class AddLinkCardComponent implements OnInit, OnDestroy {
       url: ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
       name: ['', Validators.required]
     });
-    console.log(this.linkForm.controls['url']);
   }
 
   addLink() {
     this.addLinkSubscription = this.linksService.create(this.linkForm.value)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           this.linkForm.reset();
           this.notificationService.successMessage('successfulCreateLink');
+          // If the API were not a mock here we would add the link we just added to the local array
         },
         error: (err) => {
-          console.error(err);
+          //console.error(err);
           this.notificationService.errorMessage('createLinksError');
         }
       });
