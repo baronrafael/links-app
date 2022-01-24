@@ -1,0 +1,31 @@
+.card {
+    max-width: 560px;
+}
+
+.login-card-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 132%;
+}
+
+.label {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #000000;
+}
+
+.button-card {
+    width: 75%;
+}
+
+.hero.is-fullheight-with-navbar {
+    min-height: calc(98vh - 3.25rem);
+}
+
+.signup-message {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+}

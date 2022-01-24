@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+// Import a Google Font
+//@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+// Set your brand colors
+$white: #FFFFFF;
+$black: #333333;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Lato', sans-serif;
+$primary: #007AFF;
+//$secondary: #335E78;
+//$button-border-width: 2px;
+//$button-ghost-color: #7EA9C3;
+//$pageloader-opacity: 1;
+/* $grey-dark: $brown;
+$grey-light: $beige-light;
+$link: $pink;
+$widescreen-enabled: false;
+$fullhd-enabled: false; */
+
+// Update some of Bulma's component variables
+/* $body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none; */
+
+//$input-focus-border-color: $orange;
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/bulma.sass";

@@ -1,0 +1,76 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div id="navbar" class="navbar-menu is-block is-align-self-center">
+            <div class="navbar-end is-flex">
+                <div class="navbar-item">
+                    <a (click)="changeLanguage()" class="button is-white is-medium">
+                        <span class="icon is-medium has-text-primary">
+                            <i class="fas fa-2x fa-language"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a routerLink="/auth/login" class="button is-primary is-medium is-outlined">
+                        <span class="is-uppercase">{{ 'login' | transloco }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+        <div class="container is-flex is-flex-direction-column is-align-items-center">
+            <img class="app-logo" src="/assets/images/links-logo.png">
+            <div class="card mt-5 is-fullwidth">
+                <div class="card-content">
+                    <div class="content my-3">
+                        <span class="login-card-title">{{ 'signup' | transloco }}</span>
+                        <form class="mt-3" [formGroup]="signupForm" (ngSubmit)="handleSignup()">
+                            <div class="field">
+                                <label class="label">{{ 'fullName' | transloco }}</label>
+                                <input formControlName="name" class="input" type="text">
+                                <p *ngIf="this.signupForm.controls['name'].touched && this.signupForm.controls['name'].invalid"
+                                    class="help is-danger mt-3">
+                                    {{ 'fullNameRequired' | transloco }}
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label class="label">{{ 'yourEmail' | transloco }}</label>
+                                <input formControlName="email" class="input" type="text">
+                                <p *ngIf="this.signupForm.controls['email'].touched && !checkingValidEmail() && this.signupForm.controls['email'].valid"
+                                    class="help is-danger mt-3">
+                                    {{ 'emailInvalid' | transloco }}
+                                </p>
+                                <p *ngIf="this.signupForm.controls['email'].touched && this.signupForm.controls['email'].invalid"
+                                    class="help is-danger mt-3">
+                                    {{ 'emailRequired' | transloco }}
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label class="label">{{ 'password' | transloco }}</label>
+                                <input formControlName="password" class="input" type="password">
+                                <p *ngIf="this.signupForm.controls['password'].touched && this.signupForm.controls['password'].invalid"
+                                    class="help is-danger mt-3">
+                                    {{ 'passwordRequired' | transloco }}
+                                </p>
+                            </div>
+                            <div class="field mt-4">
+                                <p class="control is-flex is-justify-content-center">
+                                    <button type="submit" class="button button-card is-primary is-medium is-filled"
+                                        [disabled]="!signupForm.valid || !checkingValidEmail()">
+                                        <span>{{ 'signup' | transloco }}</span>
+                                    </button>
+                                </p>
+                            </div>
+                        </form>
+                        <p class="has-text-centered signup-message mt-3">{{ 'creatingAccountAgree' | transloco }} <a>{{
+                                'termsOfUse' | transloco }}</a> {{ 'and' | transloco }} <a>{{
+                                'privacyPolicy' | transloco }}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

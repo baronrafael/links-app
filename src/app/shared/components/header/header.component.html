@@ -1,0 +1,26 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand is-flex is-align-items-center">
+            <a class="navbar-item">
+                <img class="header-logo" src="/assets/images/links-logo.png" height="75">
+            </a>
+        </div>
+        
+        <div id="navbar" class="navbar-menu is-block is-align-self-center">
+            <div class="navbar-end is-flex">
+                <div class="navbar-item">
+                    <a (click)="changeLanguage()" class="button is-white is-medium">
+                        <span class="icon is-medium has-text-primary">
+                            <i class="fas fa-2x fa-language"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-item">
+                    <a (click)="logout()" class="button is-primary is-medium is-outlined">
+                        <span class="is-uppercase">{{ 'logout' | transloco }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

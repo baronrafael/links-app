@@ -1,0 +1,20 @@
+<div *ngIf="user">
+    <app-header></app-header>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-narrow">
+                    <app-profile-card></app-profile-card>
+                </div>
+                <div class="column">
+                    <app-add-link-card></app-add-link-card>
+                    <br>
+                    <ng-container *ngFor="let link of links">
+                        <app-link-card [link]="link"></app-link-card>
+                        <br>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

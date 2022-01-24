@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-content">
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <span class="card-title">{{link.name}}</span>
+                    <p class="card-subtitle has-text-black mt-4">
+                        {{link.url}}
+                    </p>
+                </div>
+            </div>
+            <div class="media-right">
+                <button (click)="handleDeleteLinkModal()" class="button is-white is-medium">
+                    <span class="icon is-medium has-text-danger">
+                        <i class="fas fa-2x fa-trash-alt"></i>
+                    </span>
+                </button>
+            </div>
+        </article>
+    </div>
+</div>
+<div class="modal" id="link-{{link.id}}">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">{{ 'deleteLink' | transloco }}</p>
+            <button (click)="closeDeleteLinkModal()" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            {{ 'deleteLinkMessage' | transloco }}
+        </section>
+        <footer class="modal-card-foot">
+            <button (click)="deleteLink()" class="button is-danger">{{ 'deleteLink' | transloco }}</button>
+            <button class="button">{{ 'cancel' | transloco }}</button>
+        </footer>
+    </div>
+</div>
